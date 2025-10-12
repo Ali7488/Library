@@ -1,0 +1,55 @@
+#include "../Include/Book.h"
+
+Book::Book(int ID, std::string title, std::string author): BookID(ID), BookTitle(title), Author(author), isBorrowed(false){}
+
+//Getter Method Implementation
+int Book::getID() const{
+    return BookID;
+}
+std::string Book::getTitle() const{
+    return BookTitle;
+}
+
+std::string Book::getAuthor() const{
+    return Author;
+}
+
+bool Book::getBorrowStatus() const{
+    return isBorrowed;
+}
+
+//Setter Method Implementation
+void Book::setID(int id){
+    assert(id > 0);
+        BookID = id;
+}
+
+void Book::setTitle(std::string title){
+    BookTitle = title;
+}
+
+void Book::setAuthor(std::string author){
+    Author = author;
+}
+
+//Borrow Book Logic Implementation
+void Book::borrowBook(){
+    isBorrowed = true;
+}
+
+void Book::returnBook(){
+    isBorrowed = false;
+}
+
+//Display all book object data
+void Book::display() const {
+    std::string borrowed;
+
+    //Turn the bool into a printable string
+    if(isBorrowed)
+        borrowed = "Borrowed";
+    else
+        borrowed = "Not Borrowed";
+    
+    std::cout << "BookID: " << BookID << "\nTitle: " << BookTitle << "\nAuthor: " << Author << "\nBorrowed Status: " << borrowed << std::endl ;
+}

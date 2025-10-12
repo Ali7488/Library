@@ -14,7 +14,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Compile and immediately run using Git Bash + MinGW"
-        }
+    "detail": "Compile and immediately run using Git Bash + MinGW"
+}
     ]
 }
