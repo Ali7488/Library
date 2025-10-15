@@ -22,7 +22,7 @@ class BookManager{
     BookManager();
     void addBook(Book newBook);
     void removeBook(Book removal);
-    Book findBook(int id);
+    Book* findBook(int id);
     void borrowBookbyID(int id);
     void returnBookbyID(int id);
     void displayAll();
