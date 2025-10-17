@@ -17,6 +17,7 @@ class Book {
 private:
     int BookID;
     std::string BookTitle, Author;
+    
     bool isBorrowed;
 public:
     //Constructor

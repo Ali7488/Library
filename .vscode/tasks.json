@@ -5,7 +5,7 @@
             "label": "Build and Run Library",
             "type": "shell",
             "command":
-                "g++ -fdiagnostics-color=always -g ./src/*.cpp -I ./include -o ./bin/Library.exe && ./bin/Library.exe",
+                "g++ -fdiagnostics-color=always -g ./src/*.cpp -I ./include -o ./bin/Library && ./bin/Library",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
