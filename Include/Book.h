@@ -17,7 +17,6 @@ class Book {
 private:
     int BookID;
     std::string BookTitle, Author;
-    
     bool isBorrowed;
 public:
     //Constructor
@@ -37,10 +36,8 @@ public:
     //Borrowing Logic
     void borrowBook();
     void returnBook();
-
-    //Display all
-    void display() const;
-
+    
+   
 };
 
 #endif

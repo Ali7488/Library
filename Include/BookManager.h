@@ -23,11 +23,12 @@ class BookManager{
     void addBook(Book newBook);
     void removeBook(Book removal);
     Book* findBook(int id);
+    const Book* findBook(int id) const;
     void borrowBookbyID(int id);
     void returnBookbyID(int id);
-    void displayAll();
-    void saveFile();
-    void loadFile();
+    void displayAll()const ;
+    void displaybyID(int id) const;
+
 };
 
 #endif

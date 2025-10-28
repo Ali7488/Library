@@ -3,10 +3,13 @@
 #include "../Include/BookManager.h"
 int main() {
     BookManager Books;
-    Book book1(1234,"12","12");
-    Books.addBook(book1);
-    Book* b = Books.findBook(book1.getID());
-    if(b != nullptr)
-        b->display();
+    
+    Books.addBook(Book(1234,"pheonix","michael"));
+    Books.addBook(Book(1234,"dddd", "ssss"));
+    //Books.displaybyID(1234);
+    Books.borrowBookbyID(1234);
+    //Books.displaybyID(1234);
+
+    Books.displayAll();
     return 0;
 }

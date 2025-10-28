@@ -41,15 +41,4 @@ void Book::returnBook(){
     isBorrowed = false;
 }
 
-//Display all book object data
-void Book::display() const {
-    std::string borrowed;
 
-    //Turn the bool into a printable string
-    if(isBorrowed)
-        borrowed = "Borrowed";
-    else
-        borrowed = "Not Borrowed";
-    
-    std::cout << "BookID: " << BookID << "\nTitle: " << BookTitle << "\nAuthor: " << Author << "\nBorrowed Status: " << borrowed << std::endl ;
-}
