@@ -2,7 +2,7 @@
  * Purpose: Manages a collection of book objects
  * variables: unordered_map<ID, Book> collection
  * methods: addBook, removeBook, findBook, borrowBookbyID,
- * returnBookbyID, displayAll, saveFile, LoadFile
+ * returnBookbyID, displaybyID, displayAll 
 ********************************/
 #ifndef BOOKMANAGER_H
 #define BOOKMANAGER_H
