@@ -1,0 +1,8 @@
+/bin/
+/obj/
+/*.exe
+/*.out
+/*.p
+
+/Books.csv
+.vscode/
