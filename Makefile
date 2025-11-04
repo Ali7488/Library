@@ -23,6 +23,14 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp
 #defines make run
 run: all
 	./$(TARGET)
+
+debug: all
+	@echo "Debugging with gdb..."
+	gdb ./$(target)
+
+val: all
+	@echo "Running with valgrind..."
+	valgrind --leak-check=full --track-origins=yes ./$(TARGET)
 #defines make clean
 clean:
 	rm -rf $(OBJ_DIR) $(BIN_DIR)
