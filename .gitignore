@@ -3,7 +3,13 @@
 /*.exe
 /*.out
 /*.p
-
+library
+CMakeCache.txt
+cmake_install.cmake
+/build
 /Books.csv
 .vscode/
 .vscode/tasks.json
+CMakeFiles/
+Makefile
+.vscode/settings.json

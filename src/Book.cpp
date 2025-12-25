@@ -1,6 +1,6 @@
-#include "../Include/Book.h"
+#include "Book.h"
 
-Book::Book(int ID, std::string title, std::string author): BookID(ID), BookTitle(title), Author(author), isBorrowed(false){}
+Book::Book(int ID, std::string title, std::string author): BookID(ID), BookTitle(title), Author(author), isBorrowed(false){std::cout << "Book Constructor called\n";}
 
 //Getter Method Implementation
 int Book::getID() const{
