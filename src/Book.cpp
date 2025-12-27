@@ -18,12 +18,6 @@ bool Book::getBorrowStatus() const{
     return isBorrowed;
 }
 
-//Setter Method Implementation
-void Book::setID(int id){
-    assert(id > 0);
-        BookID = id;
-}
-
 void Book::setTitle(std::string title){
     BookTitle = title;
 }

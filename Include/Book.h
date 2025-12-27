@@ -7,15 +7,14 @@
  * Methods: Constructor, Getter and Setter methods, borrowBook, 
  * returnBook, display
 ************************************************************************/
-#ifndef BOOK_H
-#define BOOK_H
+#pragma once
 #include <string>
 #include <cassert>
 #include <iostream>
 
 class Book {
 private:
-    int BookID;
+    const int BookID;
     std::string BookTitle, Author;
     bool isBorrowed;
 public:
@@ -29,7 +28,6 @@ public:
     bool getBorrowStatus() const;
 
     //Setter Methods
-    void setID(int id);
     void setTitle(std::string title);
     void setAuthor(std::string author);
     
@@ -40,4 +38,3 @@ public:
    
 };
 
-#endif
