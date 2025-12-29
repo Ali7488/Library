@@ -26,6 +26,11 @@ class BookManager{
     void displayAll()const;
     void displaybyID(int id) const;
 
+    //returns whole book collection
+    const BookMap& getCollection() const{
+        return collection;
+    }
+
 };
 
 

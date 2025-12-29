@@ -1,10 +1,6 @@
 /***********************************************************************************************************
  * This Class manages members, it ensures each member object is initialized with an ID and a role 
  * role is part of the role.h file where it is an enum class
- *  
- *
- *
- *
  ***********************************************************************************************************/
 #pragma once
 #include "Role.h"

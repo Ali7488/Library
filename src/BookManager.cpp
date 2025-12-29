@@ -1,6 +1,6 @@
 #include "BookManager.h"
 
-//Default Constructor
+// Default Constructor
 BookManager::BookManager() {}
 
 // Function to add books into the collection where the ID is the key
