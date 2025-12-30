@@ -4,7 +4,7 @@
 #include <sstream>
 bool LibrarySystem::loadFromCSV()
 {
-    std::fstream inData("Books.csv");
+    std::ifstream inData("Books.csv");
     if (!inData.is_open())
     {
         std::cerr << "Failed to open file\n";
@@ -59,14 +59,27 @@ bool LibrarySystem::saveToCSV()
     return true;
 }
 
-bool LibrarySystem::addMember(Member newMember)
+bool LibrarySystem::addMember(const Member& newMember)
 {
+    auto it = members.emplace(newMember.getUserID(), newMember);
+    return it.second;
 }
 
-bool LibrarySystem::removeMember(Member toRemove) {}
-
-bool LibrarySystem::addBook(Book newBook)
+bool LibrarySystem::removeMember(const Member &toRemove)
 {
+    members.erase(toRemove.getUserID());
+    return true;
 }
 
-bool LibrarySystem::removeBook(int idToRemove) {}
+bool LibrarySystem::addBook(const Book& newBook)
+{
+    bookCollection.addBook(newBook);
+    return true;
+}
+
+bool LibrarySystem::removeBook(const Book &toRemove)
+{
+    bookCollection.removeBook(toRemove);
+    return true;
+}
+

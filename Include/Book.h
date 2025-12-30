@@ -9,7 +9,6 @@
 ************************************************************************/
 #pragma once
 #include <string>
-#include <cassert>
 #include <iostream>
 
 class Book {

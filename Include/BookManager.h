@@ -17,14 +17,14 @@ class BookManager{
     
     public:
     BookManager();
-    void addBook(Book newBook);
-    void removeBook(Book removal);
-    Book* findBook(int id);
-    const Book* findBook(int id) const;
-    void borrowBookbyID(int id);
-    void returnBookbyID(int id);
+    void addBook(const Book &newBook);
+    void removeBook(const Book &removal);
+    Book* findBook(const int& id);
+    const Book *findBook(const int &id) const;
+    void borrowBookbyID(const int &id);
+    void returnBookbyID(const int &id);
     void displayAll()const;
-    void displaybyID(int id) const;
+    void displaybyID(const int &id) const;
 
     //returns whole book collection
     const BookMap& getCollection() const{

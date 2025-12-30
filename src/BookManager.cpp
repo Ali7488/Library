@@ -4,7 +4,7 @@
 BookManager::BookManager() {}
 
 // Function to add books into the collection where the ID is the key
-void BookManager::addBook(Book newBook)
+void BookManager::addBook(const Book &newBook)
 {
     // adds to collection then checks if book was added or not
     auto insertAttempt = collection.emplace(newBook.getID(), newBook);
@@ -19,7 +19,7 @@ void BookManager::addBook(Book newBook)
 }
 
 // Removes book then checks if book was removed successfully
-void BookManager::removeBook(Book removal)
+void BookManager::removeBook(const Book &removal)
 {
     collection.erase(removal.getID());
     if (collection.find(removal.getID()) == collection.end())
@@ -27,7 +27,7 @@ void BookManager::removeBook(Book removal)
 }
 
 // searches for a book by its ID, if found it reterns a pointer to the book object, else returns empty pointer
-Book *BookManager::findBook(int id)
+Book *BookManager::findBook(const int &id)
 {
     auto it = collection.find(id);
     if (it != collection.end())
@@ -39,7 +39,7 @@ Book *BookManager::findBook(int id)
 }
 
 // const version of findbook to use it in display (since display is const)
-const Book *BookManager::findBook(int id) const
+const Book *BookManager::findBook(const int &id) const
 {
     auto it = collection.find(id);
     if (it != collection.end())
@@ -51,7 +51,7 @@ const Book *BookManager::findBook(int id) const
 }
 
 // uses the bookID to find the book and borrow
-void BookManager::borrowBookbyID(int id)
+void BookManager::borrowBookbyID(const int &id)
 {
     Book *book = findBook(id);
     if (book != nullptr) // Checks book exists
@@ -69,7 +69,7 @@ void BookManager::borrowBookbyID(int id)
 }
 
 // same logic as borrowbook, but checks if book is borrowed then returns it
-void BookManager::returnBookbyID(int id)
+void BookManager::returnBookbyID(const int &id)
 {
     Book *book = findBook(id);
     if (book != nullptr)
@@ -87,7 +87,7 @@ void BookManager::returnBookbyID(int id)
 }
 
 // Display all book object data
-void BookManager::displaybyID(int id) const
+void BookManager::displaybyID(const int &id) const
 {
     const Book *bookptr = findBook(id);
     std::string borrowed;

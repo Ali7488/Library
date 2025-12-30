@@ -25,8 +25,8 @@ public:
     bool loadFromCSV();
     bool saveToCSV();
 
-    bool addMember(Member newMember);
-    bool removeMember(Member toRemove);
-    bool addBook(Book newBook);
-    bool removeBook(int idToRemove);
+    bool addMember(const Member &newMember);
+    bool removeMember(const Member &toRemove);
+    bool addBook(const Book &newBook);
+    bool removeBook(const Book &toRemove);
 };
