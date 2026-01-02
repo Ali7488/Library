@@ -4,26 +4,36 @@
 BookManager::BookManager() {}
 
 // Function to add books into the collection where the ID is the key
-void BookManager::addBook(const Book &newBook)
+bool BookManager::addBook(const Book &newBook)
 {
     // adds to collection then checks if book was added or not
-    auto insertAttempt = collection.emplace(newBook.getID(), newBook);
-    if (!insertAttempt.second)
+    auto [key, status] = collection.emplace(newBook.getID(), newBook);
+    if (status)
     {
-        std::cout << "A book with the ID " << newBook.getID() << " already exists!\n";
+        std::cout << "Book with ID " << newBook.getID() << " sucessfully added!\n";
+        return true;
     }
     else
     {
-        std::cout << "Book with ID " << newBook.getID() << " sucessfully added!\n";
+        std::cout << "A book with the ID " << newBook.getID() << " already exists!\n";
+        return false;
     }
 }
 
 // Removes book then checks if book was removed successfully
-void BookManager::removeBook(const Book &removal)
+bool BookManager::removeBook(const int &id)
 {
-    collection.erase(removal.getID());
-    if (collection.find(removal.getID()) == collection.end())
+
+    if (collection.erase(id) == 1)
+    {
         std::cout << "Book removed Successfully!\n\n";
+        return true;
+    }
+    else
+    {
+        std::cout << "Book was not found!\n";
+        return false;
+    }
 }
 
 // searches for a book by its ID, if found it reterns a pointer to the book object, else returns empty pointer
@@ -51,7 +61,7 @@ const Book *BookManager::findBook(const int &id) const
 }
 
 // uses the bookID to find the book and borrow
-void BookManager::borrowBookbyID(const int &id)
+bool BookManager::borrowBookbyID(const int &id)
 {
     Book *book = findBook(id);
     if (book != nullptr) // Checks book exists
@@ -63,13 +73,15 @@ void BookManager::borrowBookbyID(const int &id)
         }
         else // if borrowed print statement
             std::cout << "Book already borrowed!\n";
+        return true;
     }
     else
         std::cout << "Book not found\n";
+    return false;
 }
 
 // same logic as borrowbook, but checks if book is borrowed then returns it
-void BookManager::returnBookbyID(const int &id)
+bool BookManager::returnBookbyID(const int &id)
 {
     Book *book = findBook(id);
     if (book != nullptr)
@@ -81,9 +93,11 @@ void BookManager::returnBookbyID(const int &id)
         }
         else
             std::cout << "Book already not borrowed!\n";
+        return true;
     }
     else
         std::cout << "Book not found\n";
+    return false;
 }
 
 // Display all book object data

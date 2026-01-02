@@ -17,12 +17,12 @@ class BookManager{
     
     public:
     BookManager();
-    void addBook(const Book &newBook);
-    void removeBook(const Book &removal);
+    bool addBook(const Book &newBook);
+    bool removeBook(const int &id);
     Book* findBook(const int& id);
     const Book *findBook(const int &id) const;
-    void borrowBookbyID(const int &id);
-    void returnBookbyID(const int &id);
+    bool borrowBookbyID(const int &id);
+    bool returnBookbyID(const int &id);
     void displayAll()const;
     void displaybyID(const int &id) const;
 
