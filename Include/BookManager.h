@@ -31,6 +31,10 @@ class BookManager{
         return collection;
     }
 
+    BookMap &getCollectionNoConst()
+    {
+        return collection;
+    }
 };
 
 

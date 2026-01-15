@@ -6,9 +6,11 @@
  ************************************************************************/
 #pragma once
 #include <vector>
+#include <unordered_map>
 
 #include "BookManager.h"
 #include "Member.h"
+
 class LibrarySystem
 {
 private:
@@ -28,5 +30,5 @@ public:
     bool addMember(const Member &newMember);
     bool removeMember(const Member &toRemove);
     bool addBook(const Book &newBook);
-    bool removeBook(const Book &toRemove);
+    bool removeBook(const int id);
 };

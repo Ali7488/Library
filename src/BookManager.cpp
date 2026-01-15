@@ -6,37 +6,31 @@ BookManager::BookManager() {}
 // Function to add books into the collection where the ID is the key
 bool BookManager::addBook(const Book &newBook)
 {
-    // adds to collection then checks if book was added or not
     auto [key, status] = collection.emplace(newBook.getID(), newBook);
     if (status)
     {
         std::cout << "Book with ID " << newBook.getID() << " sucessfully added!\n";
         return true;
     }
-    else
-    {
-        std::cout << "A book with the ID " << newBook.getID() << " already exists!\n";
-        return false;
-    }
+
+    std::cout << "A book with the ID " << newBook.getID() << " already exists!\n";
+    return false;
 }
 
 // Removes book then checks if book was removed successfully
 bool BookManager::removeBook(const int &id)
 {
-
     if (collection.erase(id) == 1)
     {
         std::cout << "Book removed Successfully!\n\n";
         return true;
     }
-    else
-    {
-        std::cout << "Book was not found!\n";
-        return false;
-    }
+
+    std::cout << "Book was not found!\n";
+    return false;
 }
 
-// searches for a book by its ID, if found it reterns a pointer to the book object, else returns empty pointer
+// searches for a book by its ID, if found it returns a pointer to the book object, else returns empty pointer
 Book *BookManager::findBook(const int &id)
 {
     auto it = collection.find(id);
@@ -44,8 +38,7 @@ Book *BookManager::findBook(const int &id)
     {
         return &(it->second);
     }
-    else
-        return nullptr;
+    return nullptr;
 }
 
 // const version of findbook to use it in display (since display is const)
@@ -56,8 +49,7 @@ const Book *BookManager::findBook(const int &id) const
     {
         return &(it->second);
     }
-    else
-        return nullptr;
+    return nullptr;
 }
 
 // uses the bookID to find the book and borrow
@@ -75,8 +67,8 @@ bool BookManager::borrowBookbyID(const int &id)
             std::cout << "Book already borrowed!\n";
         return true;
     }
-    else
-        std::cout << "Book not found\n";
+
+    std::cout << "Book not found\n";
     return false;
 }
 
@@ -95,8 +87,8 @@ bool BookManager::returnBookbyID(const int &id)
             std::cout << "Book already not borrowed!\n";
         return true;
     }
-    else
-        std::cout << "Book not found\n";
+
+    std::cout << "Book not found\n";
     return false;
 }
 

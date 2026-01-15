@@ -2,8 +2,12 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+
+LibrarySystem::LibrarySystem() = default;
+
 bool LibrarySystem::loadFromCSV()
 {
+    bookCollection.getCollectionNoConst().clear();
     std::ifstream inData("Books.csv");
     if (!inData.is_open())
     {
@@ -59,7 +63,7 @@ bool LibrarySystem::saveToCSV()
     return true;
 }
 
-bool LibrarySystem::addMember(const Member& newMember)
+bool LibrarySystem::addMember(const Member &newMember)
 {
     auto it = members.emplace(newMember.getUserID(), newMember);
     return it.second;
@@ -67,19 +71,15 @@ bool LibrarySystem::addMember(const Member& newMember)
 
 bool LibrarySystem::removeMember(const Member &toRemove)
 {
-    members.erase(toRemove.getUserID());
-    return true;
+    return members.erase(toRemove.getUserID()) == 1;
 }
 
-bool LibrarySystem::addBook(const Book& newBook)
+bool LibrarySystem::addBook(const Book &newBook)
 {
-    bookCollection.addBook(newBook);
-    return true;
+    return bookCollection.addBook(newBook);
 }
 
-bool LibrarySystem::removeBook(const Book &toRemove)
+bool LibrarySystem::removeBook(const int id)
 {
-    bookCollection.removeBook(toRemove);
-    return true;
+    return bookCollection.removeBook(id);
 }
-
