@@ -1,8 +1,7 @@
 /***********************************************************************
- * This is the heart of the project, here is where all the functions
- * to actually use the library manager occur, this is where user
- * Authentication, Book management, and user interface are actually ran
- *
+ * Coordinates the library's book collection and member records.
+ * Handles CSV persistence plus the high-level operations currently
+ * implemented by the LibrarySystem class.
  ************************************************************************/
 #pragma once
 #include <vector>
