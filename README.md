@@ -1,51 +1,63 @@
 # Library Management System
 
-A simple **_Library Management System_** written in **C++** and built using **Cmake**. Designed as a clean, modular project to practice real world **Object Oriented Programming** and **C++ structures**.
-
----
+A C++17 library management project focused on object-oriented design, collection management, borrowing state, and CSV persistence. The current executable is a demonstration harness that exercises the core library operations rather than an interactive end-user application.
 
 ## Features
 
-- Store and manage books in a local dataset
-- Modular codebase with seperated headers and source files
-- Cmake used for building the program
-- Seperates different roles and responsibilities depending on the users role (Customer/Admin)
+- Model books and members with separate C++ classes
+- Store books in an `std::unordered_map` keyed by ID
+- Add, remove, find, borrow, and return books
+- Reject duplicate book IDs and invalid borrowing operations
+- Load the book collection from `Books.csv`
+- Save the current collection back to `Books.csv`
+- Track a member role value for future role-aware behavior
+- Organize declarations and implementations across headers and source files
+- Build with CMake
 
----
+> **Current scope:** Member roles are represented in the domain model, but role-specific permissions and authentication are not implemented.
 
 ## Project Structure
 
-The program is structured like below:
-
 ```text
 .
-├── Include/         # Header files
-├── src/             # Source files
-├── Books.csv        # Book database (CSV storage, temporary)
-├── CMakeLists.txt   # Build configuration
+├── Include/              # Header files
+├── src/                  # Implementations and demonstration main()
+├── Books.example.csv     # Example CSV input
+├── CMakeLists.txt        # Build configuration
+└── README.md
 ```
 
----
-
-## Building and running
-
-#### Requirements:
-
-- CMake (3.16+ is recommended)
-- A C++ compiler
-
-#### Build and Run:
-
-From the repo root:
+The runtime `Books.csv` file is intentionally ignored by Git because the program reads from and writes to it locally. To start with sample data:
 
 ```bash
-mkdir -p build
+cp Books.example.csv Books.csv
+```
+
+## Building and Running
+
+### Requirements
+
+- CMake 3.16+
+- A C++17-compatible compiler
+
+### Build
+
+```bash
 cmake -S . -B build
 cmake --build build
 ```
 
-Then, once built proceed to run the program using:
+### Run
 
 ```bash
 ./build/library
 ```
+
+The current `main.cpp` demonstrates loading data, adding and removing books, saving to CSV, and a borrow/return cycle.
+
+## Current Limitations
+
+- The executable is a fixed demonstration rather than an interactive CLI.
+- Authentication is not implemented.
+- Member roles are stored but do not currently enforce different permissions.
+- Automated tests have not yet been added.
