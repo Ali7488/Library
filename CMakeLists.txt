@@ -18,3 +18,20 @@ add_executable(library ${SRC_FILES})
 
 target_include_directories(library PRIVATE 
 ${CMAKE_CURRENT_SOURCE_DIR}/Include)
+
+
+include(CTest)
+
+if(BUILD_TESTING)
+    add_executable(library_tests
+        tests/LibraryTests.cpp
+        src/Book.cpp
+        src/BookManager.cpp
+    )
+
+    target_include_directories(library_tests PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/Include
+    )
+
+    add_test(NAME library_tests COMMAND library_tests)
+endif()
