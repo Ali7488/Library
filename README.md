@@ -1,5 +1,7 @@
 # Library Management System
 
+![CI](https://github.com/Ali7488/Library/actions/workflows/ci.yml/badge.svg)
+
 A C++17 library management project focused on object-oriented design, collection management, borrowing state, and CSV persistence. The current executable is a demonstration harness that exercises the core library operations rather than an interactive end-user application.
 
 ## Features
@@ -55,9 +57,20 @@ cmake --build build
 
 The current `main.cpp` demonstrates loading data, adding and removing books, saving to CSV, and a borrow/return cycle.
 
+## Testing
+
+The repository includes focused CTest coverage for core `BookManager` behavior, including duplicate IDs, lookup, borrowing/returning state, and removal.
+
+```bash
+cmake -S . -B build -DBUILD_TESTING=ON
+cmake --build build
+ctest --test-dir build --output-on-failure
+```
+
+GitHub Actions runs the build and test suite on pushes and pull requests.
+
 ## Current Limitations
 
 - The executable is a fixed demonstration rather than an interactive CLI.
 - Authentication is not implemented.
 - Member roles are stored but do not currently enforce different permissions.
-- Automated tests have not yet been added.
